@@ -17,4 +17,4 @@ RUN chmod +x /entrypoint.sh \
     && mkdir -p /app/data
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["python", "main.py"]
+CMD ["python", "bot.py"]

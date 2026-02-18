@@ -45,17 +45,17 @@ docker compose down
 
 ## 🤖 Bot Commands
 
-| Command | Description |
-|----------|-------------|
-| /start | Start the bot |
-| /time HH:MM | Set daily report time |
-| /add <station_id> | Add station |
-| /list | Show stations |
-| /del <number> | Delete station |
-| /clear | Remove all stations |
-| /send | Send report immediately |
-| /status | Show current status |
-| /on | Enable notifications |
-| /off | Disable notifications |
+| Command           | Description             |
+|-------------------|-------------------------|
+| /start            | Start the bot           |
+| /time HH:MM       | Set daily report time   |
+| /add <station_id> | Add station             |
+| /list             | Show stations           |
+| /del \<number\>   | Delete station          |
+| /clear            | Remove all stations     |
+| /send             | Send report immediately |
+| /status           | Show current status     |
+| /on               | Enable notifications    |
+| /off              | Disable notifications   |
 
 ---

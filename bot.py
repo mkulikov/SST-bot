@@ -201,9 +201,9 @@ async def set_time_command(message: Message):
 @dp.message(Command("add"))
 async def add_station_command(message: Message):
     try:
-        station = int(message.text.split()[1])
-        await add_station(message.chat.id, station)
-        await message.answer(f"✅ Station {station} added")
+        station_id = int(message.text.split()[1])
+        await add_station(message.chat.id, station_id)
+        await message.answer(f"✅ Station {station_id} added")
     except (IndexError, ValueError):
         await message.answer("Example: /add 12345")
 
