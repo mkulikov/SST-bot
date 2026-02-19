@@ -1,1 +1,15 @@
+# Secrets
 .env
+*.env
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Python
+functions/venv/
+functions/__pycache__/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
