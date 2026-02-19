@@ -6,7 +6,7 @@ services:
     volumes:
       - bot_data:/app/data
     environment:
-      - DB_NAME=/app/data/bot.db
+      - DB_PATH=/app/data/bot.db
       - BOT_TOKEN=${BOT_TOKEN}
       - LOG_LEVEL=INFO
       - TZ=Asia/Tbilisi
