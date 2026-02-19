@@ -172,8 +172,8 @@ async def start_command(message: Message):
     await ensure_user(message.chat.id)
     await restore_scheduled_reports()
     await message.answer(
-        "🤖 Bot started!\n\n"
-        "⏰ All times are in Georgia time (UTC+4)\n\n"
+        "🤖 Bot started!\n"
+        f"⏰ All times are in {TZ.zone} time \n"
         "/time HH:MM — set delivery time\n"
         "/add <station_id> — add station\n"
         "/list — list stations\n"
@@ -193,7 +193,7 @@ async def set_time_command(message: Message):
         datetime.strptime(time_str, "%H:%M")
         await update_user(message.chat.id, time=time_str)
         await restore_scheduled_reports()
-        await message.answer(f"⏰ Time set to {time_str} (UTC+4)")
+        await message.answer(f"⏰ Time set to {time_str} ({TZ.zone})")
     except (IndexError, ValueError):
         await message.answer("Example: /time 09:00")
 
@@ -241,7 +241,7 @@ async def send_report_command(message: Message):
     if not stations:
         return await message.answer("Stations list is empty")
     sst_report = await build_sst_report(stations)
-    return await bot.send_message(message.chat.id, sst_report)
+    return await message.answer(sst_report)
 
 
 @dp.message(Command("off"))
@@ -270,9 +270,9 @@ async def status_command(message: Message):
     stations = await get_user_stations(message.chat.id)
     status_text = "✅ enabled" if enabled else "❌ disabled"
     status_report = (
-        "📊 *Bot status*\n\n"
+        "📊 *Bot status*\n"
         f"Delivery: {status_text}\n"
-        f"Time: {time_str} (UTC+4)\n"
+        f"Time: {time_str} ({TZ.zone})\n"
         f"Stations: {len(stations)}\n"
     )
     if stations:
