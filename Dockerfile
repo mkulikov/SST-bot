@@ -12,6 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY bot ./bot
 COPY entrypoint.sh ./entrypoint.sh
+COPY init.sql ./init.sql
 
 RUN chmod +x entrypoint.sh \
     && mkdir -p /app/data
