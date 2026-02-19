@@ -10,11 +10,11 @@ RUN apt-get update && \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
-COPY docker/entrypoint.sh /entrypoint.sh
+COPY bot ./bot
+COPY entrypoint.sh ./entrypoint.sh
 
-RUN chmod +x /entrypoint.sh \
+RUN chmod +x entrypoint.sh \
     && mkdir -p /app/data
 
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["python", "bot.py"]
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["python", "bot/main.py"]
